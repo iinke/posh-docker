@@ -177,6 +177,7 @@ function script:CompleteImages($commandName)
 # Register the TabExpension2 function
 if (-not $global:options) { $global:options = @{CustomArgumentCompleters = @{};NativeArgumentCompleters = @{}}}
 $global:options['NativeArgumentCompleters']['docker'] = $Completion_Docker
+$global:options['NativeArgumentCompleters']['d'] = $Completion_Docker
 
 $function:tabexpansion2 = $function:tabexpansion2 -replace 'End\r\n{','End { if ($null -ne $options) { $options += $global:options} else {$options = $global:options}'
 
